@@ -1,74 +1,74 @@
-Number Classification API
+**Number Classification API**
 
-Overview
+**Overview**
 
 This is a Flask-based API that classifies numbers based on different mathematical properties. Given a number, the API determines whether it is:
 
-A prime number
+* A prime number
 
-A perfect number
+* A perfect number
 
-An Armstrong number
+* An Armstrong number
 
-Even or odd
+* Even or odd
 
-The sum of its digits
+* The sum of its digits
 
-A fun fact about the number (using the Numbers API)
+* A fun fact about the number (using the Numbers API)
 
-Features
+**Features**
 
-Prime Number Check: Determines if a number is prime.
+**Prime Number Check**: Determines if a number is prime.
 
-Perfect Number Check: Checks if a number is a perfect number.
+**Perfect Number Check**: Checks if a number is a perfect number.
 
-Armstrong Number Check: Determines if a number is an Armstrong number.
+**Armstrong Number Check**: Determines if a number is an Armstrong number.
 
-Even/Odd Check: Identifies if a number is even or odd.
+**Even/Odd Check**: Identifies if a number is even or odd.
 
-Digit Sum Calculation: Calculates the sum of the digits of a number.
+**Digit Sum Calculation**: Calculates the sum of the digits of a number.
 
-Fun Fact Fetching: Retrieves a fun fact about the number using an external API.
+**Fun Fact Fetching**: Retrieves a fun fact about the number using an external API.
 
-Installation
+**Installation**
 
-Clone the repository:
+**Clone the repository**:
 
 git clone https://github.com/your-username/number-classification-api.git
 cd number-classification-api
 
-Create and activate a virtual environment (optional but recommended):
+**Create and activate a virtual environment (optional but recommended)**:
 
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
-Install the required dependencies:
+**Install the required dependencies**:
 
 pip install -r requirements.txt
 
-Usage
+**Usage**
 
-Run the Flask application:
+**Run the Flask application**:
 
 python app.py
 
-Access the API endpoint by sending a GET request:
+**Access the API endpoint by sending a GET request**:
 
 http://127.0.0.1:5000/api/classify-number?number=28
 
-API Endpoint
+**API Endpoint**
 
 GET /api/classify-number
 
-Request Parameters
+**Request Parameters**
 
 number (required): The number to classify.
 
-Example Request
+**Example Request**
 
 curl "http://127.0.0.1:5000/api/classify-number?number=28"
 
-Example Response
+**Example Response**
 
 {
   "number": 28,
@@ -79,16 +79,19 @@ Example Response
   "fun_fact": "28 is a perfect number, equal to the sum of its proper divisors."
 }
 
-Dependencies
+**Dependencies**
 
-Flask
+**Flask**
 
-Requests
+**Requests**
 
 To install dependencies manually, run:
 
 pip install flask requests
 
-Contributing
+**Contributing**
 
 Feel free to fork this repository, open issues, or submit pull requests.
+
+**Author**
+Babatunde Olumoh
