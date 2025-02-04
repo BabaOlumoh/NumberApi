@@ -50,7 +50,7 @@ def classify_number():
     try:
         number = int(number_param)
     except (TypeError, ValueError):
-        return jsonify({"number": number_param, "error": "Invalid input"}), 400
+        return jsonify({"number": "alphabet", "error": "true"}), 400
     
 # Checking for number properties
     number = int(number_param)
