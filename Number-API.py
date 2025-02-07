@@ -58,16 +58,16 @@ def classify_number():
 
     json_response = {
         "number": number,
-        "is_prime_number": is_prime(number),
-        "is_perfect": is_perfect(number),
+        "is_prime": bool(is_prime(number)),  # Ensure boolean output
+        "is_perfect": bool(is_perfect(number)),  # Ensure boolean output
+        "digit_sum": digit_sum(number),  # Ensure numeric output
         "properties": properties,
-        "digit_sum": digit_sum(number),
         "fun_fact": get_fun_fact(number)
     }
     
     return jsonify(json_response)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int("8080"), debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
   
     
