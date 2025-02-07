@@ -40,17 +40,19 @@ def home():
     return Response(response_data, mimetype="application/json")
 
 @app.route("/api/classify-number", methods=['GET'])
+
+    
 def classify_number():
     number_param = request.args.get('number')
 
     if not number_param:
-        response_data = json.dumps({"number": "alphabet", "error": "true"}, indent=4, sort_keys=False)
+        response_data = json.dumps({"number": "alphabet", "error": "true"}, indent=4)
         return Response(response_data, status=400, mimetype="application/json")
 
     try:
         number = int(number_param)
     except ValueError:
-        response_data = json.dumps({"number": "alphabet", "error": "true"}, indent=4, sort_keys=False)
+        response_data = json.dumps({"number": "alphabet", "error": "true"}, indent=4)
         return Response(response_data, status=400, mimetype="application/json")
 
     properties = []
