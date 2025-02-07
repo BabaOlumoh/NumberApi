@@ -48,7 +48,8 @@ def classify_number():
     try:
         number = int(number_param)
     except (TypeError, ValueError):
-        return jsonify({"number": "alphabet", "error": "true"}), 400
+                return Response(json.dumps(json_response, indent=4), status=400, content_type="application/json")
+
     
 # Checking for number properties
     number = int(number_param)
@@ -68,7 +69,8 @@ def classify_number():
         "fun_fact": get_fun_fact(number)
     }
     
-    return Response(json.dumps(json_response), status=200, content_type="application/json")
+    return Response(json.dumps(json_response, indent=4), status=200, content_type="application/json")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
