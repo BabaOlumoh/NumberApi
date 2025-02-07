@@ -1,6 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, Response
 from flask_cors import CORS
 import requests
+import json
 import os
 
 app = Flask(__name__)
@@ -67,7 +68,7 @@ def classify_number():
         "fun_fact": get_fun_fact(number)
     }
     
-    return jsonify(json_response)
+    return Response(json.dumps(json_response), status=200, content_type="application/json")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
