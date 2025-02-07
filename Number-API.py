@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Checking if number is a prime
-def prime_number(number):
+def is_prime(number):
     if number < 2:
         return False
     for i in range(2, int(number ** 0.5) + 1):
@@ -16,7 +16,7 @@ def prime_number(number):
     return True
 
 # Checking if number is a perfect number
-def perfect_number(number):
+def is_perfect(number):
     divisors = [i for i in range(1, number) if number % i == 0]
     return sum(divisors) == number
 
@@ -28,13 +28,8 @@ def armstrong_number(number):
     return sum(d ** power for d in digits) == number
 
 # Sum of the number
-def digits_sum(number):
+def digit_sum(number):
     return sum(int(d) for d in str(number))
-
-
-print(digits_sum(371))
-
-# Fun-fact Api
 
 
 def get_fun_fact(number):
@@ -63,10 +58,10 @@ def classify_number():
 
     json_response = {
         "number": number,
-        "prime_number": prime_number(number),
-        "perfect_number": perfect_number(number),
+        "prime_number": is_prime(number),
+        "perfect_number": is_perfect(number),
         "properties": properties,
-        "digits_sum": digits_sum(number),
+        "digits_sum": digit_sum(number),
         "fun_fact": get_fun_fact(number)
     }
     
