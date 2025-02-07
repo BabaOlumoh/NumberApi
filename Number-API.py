@@ -58,10 +58,10 @@ def classify_number():
 
     json_response = {
         "number": number,
-        "prime_number": is_prime(number),
-        "perfect_number": is_perfect(number),
+        "is_prime_number": is_prime(number),
+        "is_perfect": is_perfect(number),
         "properties": properties,
-        "digits_sum": digit_sum(number),
+        "digit_sum": digit_sum(number),
         "fun_fact": get_fun_fact(number)
     }
     
