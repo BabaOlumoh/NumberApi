@@ -1,7 +1,6 @@
-from flask import Flask, request, Response
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
-import json
 import os
 
 app = Flask(__name__)
@@ -41,8 +40,7 @@ def get_fun_fact(number):
 
 @app.route('/')
 def home():
-    return Response(json.dumps({"message": "Welcome to the Number Classification API!"}, indent=4),
-                    status=200, content_type="application/json")
+    return jsonify({"message": "Welcome to the Number Classification API!"})
 
 @app.route("/api/classify-number", methods=['GET'])
 def classify_number():
@@ -52,8 +50,7 @@ def classify_number():
     try:
         number = int(number_param)
     except (TypeError, ValueError):
-                return Response(json.dumps(json_response, indent=4), status=400, content_type="application/json")
-
+        return jsonify({"number": "alphabet", "error": "true"}), 400
     
 # Checking for number properties
     number = int(number_param)
@@ -73,8 +70,7 @@ def classify_number():
         "fun_fact": get_fun_fact(number)
     }
     
-    return Response(json.dumps(json_response, indent=4), status=200, content_type="application/json")
-
+    return jsonify(json_response)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
