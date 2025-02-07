@@ -17,7 +17,9 @@ def is_prime(number):
 
 # Checking if number is a perfect number
 def is_perfect(number):
-    return number > 0 and sum(i for i in range(1, number) if number % i == 0) == number
+    if number < 1:  
+        return False
+    return sum(i for i in range(1, number) if number % i == 0) == number
 
 # Checking if number is an Armstrong number
 def is_armstrong(number):
@@ -31,7 +33,7 @@ def digit_sum(number):
 
 # Fetching a fun fact about the number
 def get_fun_fact(number):
-    abs_number = abs(number)  # Always use absolute value
+    abs_number = abs(number)  
     try:
         response = requests.get(f"http://numbersapi.com/{abs_number}/math", timeout=5)
         return response.text if response.status_code == 200 else "No fun fact available."
