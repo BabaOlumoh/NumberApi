@@ -39,6 +39,10 @@ def get_fun_fact(number):
     response = requests.get(f"http://numbersapi.com/{number}/math")
     return response.text if response.status_code == 200 else "No fun fact available."
 
+@app.route('/')
+def home():
+    return Response(json.dumps({"message": "Welcome to the Number Classification API!"}, indent=4),
+                    status=200, content_type="application/json")
 
 @app.route("/api/classify-number", methods=['GET'])
 def classify_number():
