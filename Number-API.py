@@ -21,18 +21,22 @@ def is_perfect(number):
 
 # Checking if number is an Armstrong number
 def is_armstrong(number):
-    digits = [int(d) for d in str(number)]
+    digits = [int(d) for d in str(abs(number))]
     power = len(digits)
-    return sum(d ** power for d in digits) == number
+    return sum(d ** power for d in digits) == abs(number)
 
 # Sum of the digits in a number
 def digit_sum(number):
-    return sum(int(d) for d in str(number))
+    return sum(int(d) for d in str(abs(number)))
 
 # Fetching a fun fact about the number
 def get_fun_fact(number):
-    response = requests.get(f"http://numbersapi.com/{number}/math")
-    return response.text if response.status_code == 200 else "No fun fact available."
+    abs_number = abs(number)  # Always use absolute value
+    try:
+        response = requests.get(f"http://numbersapi.com/{abs_number}/math", timeout=5)
+        return response.text if response.status_code == 200 else "No fun fact available."
+    except requests.RequestException:
+        return "Could not retrieve fun fact due to network issues."
 
 @app.route('/')
 def home():
